@@ -20,15 +20,6 @@ void Main()
 	
 	MyApp sceneMgr;
 	sceneMgr.add<Title>(SceneName::Title);
-	//sceneMgr.add<Debug>(SceneName::Debug);
-	
-	for (int i = 0; i <= 20; ++i) 
-		Create<NormalBlock>(100+32*i, 500);
-
-	Create<NormalBlock>(100, 500 - 32);
-	Create<NormalBlock>(100, 500 - 32-32);
-	Create<Mizuki>(0, 0);
-	Create<Poboo>(500, 300);
 
 	while (System::Update())
 	{
