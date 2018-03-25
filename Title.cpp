@@ -14,7 +14,7 @@ Title::~Title()
 void Title::update()
 {
 	if (Input::MouseL.clicked) {
-		changeScene(SceneName::Debug, 0);
+		changeScene(SceneName::Game, 0);
 	}
 }
 
