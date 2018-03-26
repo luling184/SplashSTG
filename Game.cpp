@@ -29,12 +29,13 @@ void Game::draw() const
 MethodExec<Game> Game::readyCount()
 {
 	static Stopwatch sw(true);
-	sw.isActive() ? true : sw.restart();
+	sw.resume();
 
 	FontAsset(L"normal_10")(3 - sw.s()).draw(0, 0, Palette::White);
 
 	if (sw.s() == 3) {
-		sw.reset();
+		sw.set(0.0s);
+		sw.pause();
 		return &Game::startBattle;
 	}
 	
@@ -49,9 +50,6 @@ MethodExec<Game> Game::startBattle()
 	{
 		return &Game::readyCount;
 	}
-	else
-	{
-		return &Game::startBattle;
-	}
 
+	return &Game::startBattle;
 }
