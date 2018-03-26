@@ -1,6 +1,5 @@
-﻿# include <Siv3D.hpp>
-# include <HamFramework.hpp>
-# include "Title.hpp"
+﻿# include "Title.hpp"
+# include "Game.hpp"
 // #include "Debug.hpp"
 # include "AssetMgr.hpp"
 # include "SceneName.hpp"
@@ -20,12 +19,13 @@ void Main()
 	
 	MyApp sceneMgr;
 	sceneMgr.add<Title>(SceneName::Title);
+	sceneMgr.add<Game>(SceneName::Game);
 
 	while (System::Update())
 	{
 		TaskSend::All::Update();
-		TaskCall::All::Update(callGroupUpdate);
-		TaskCall::All::Update(callGroupDraw);
+		sceneMgr.update();
+		sceneMgr.draw();
 		Task::All::Update();
 		FontAsset(L"normal_10.5")(Profiler::FPS() , L"fps").draw(Window::Width()-100,Window::Height()-50);
 	}

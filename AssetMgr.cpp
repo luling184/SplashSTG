@@ -23,6 +23,6 @@ int32 font::loadAsset()
 {
 	FontAsset::Register(L"normal_30", 30);
 	FontAsset::Register(L"normal_20", 20);
-	FontAsset::Register(L"normal_10.5", 10.5 );
+	FontAsset::Register(L"normal_10", 10 );
 	return 0;
 }
